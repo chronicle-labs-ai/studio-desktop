@@ -38,7 +38,11 @@ function Main() {
           e.stopPropagation();
         }}
         onDrop={(e) => {
-          const fileName = e.dataTransfer?.files[0].path;
+          e.preventDefault();
+          const file = e.dataTransfer.files[0];
+          if (!file) return;
+          const fileName = window.outerbaseIpc.getPathForFile(file);
+          if (!fileName) return;
 
           window.outerbaseIpc.connect({
             type: "sqlite",
@@ -48,7 +52,6 @@ function Main() {
               host: fileName,
             },
           });
-          e.preventDefault();
         }}
       >
         <div className="flex-1 overflow-hidden">
