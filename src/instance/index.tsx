@@ -108,7 +108,7 @@ function InstanceListRoute() {
             delete draft[container.id];
           });
         }
-      } catch (e) {
+      } catch {
         // If it fails to start, let try to get the error status
         const failedContainer = await window.outerbaseIpc.docker.inspect(
           container.id,

@@ -54,7 +54,9 @@ export function createDatabaseWindow(ctx: {
   const EMBEDED_STUDIO_ENDPOINT =
     process.env.STUDIO_ENDPOINT || STUDIO_ENDPOINT;
 
-  isDev && console.log(`STUDIO ENDPOINT=${EMBEDED_STUDIO_ENDPOINT}`);
+  if (isDev) {
+    console.log(`STUDIO ENDPOINT=${EMBEDED_STUDIO_ENDPOINT}`);
+  }
 
   const databaseType = getDatabaseType(ctx.conn.type);
 
