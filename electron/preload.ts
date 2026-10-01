@@ -2,6 +2,7 @@ import { DatabaseInstanceStoreItem } from "@/lib/db-manager-store";
 import {
   ipcRenderer,
   contextBridge,
+  webUtils,
   type OpenDialogOptions,
   type OpenDialogReturnValue,
 } from "electron";
@@ -70,6 +71,10 @@ const outerbaseIpc = {
 
   restart() {
     return ipcRenderer.invoke("restart");
+  },
+
+  getPathForFile(file: File): string {
+    return webUtils.getPathForFile(file);
   },
 
   openFileDialog(options?: OpenDialogOptions): Promise<OpenDialogReturnValue> {
