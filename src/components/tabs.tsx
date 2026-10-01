@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { useMemo, useState } from "react";
 import { Button } from "./ui/button";
 import { Sun, MoonStar } from "lucide-react";
-import { useTheme } from "@/context/theme-provider";
+import { useTheme } from "@/context/theme-context";
 
 interface TabItemProps {
   name: string;
