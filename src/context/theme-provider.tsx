@@ -1,28 +1,16 @@
 import {
   PropsWithChildren,
-  createContext,
   useCallback,
-  useContext,
   useEffect,
   useMemo,
   useState,
 } from "react";
 
+import { ThemeContext, type ThemeType } from "./theme-context";
+
+export type { ThemeType } from "./theme-context";
+
 const KEY = "theme";
-
-export type ThemeType = "dark" | "light";
-
-type ContextType = {
-  theme: ThemeType;
-  toggleTheme: (theme?: ThemeType) => void;
-};
-
-const ThemeContext = createContext<ContextType>({
-  theme: "light",
-  toggleTheme: () => {},
-});
-
-export const useTheme = () => useContext(ThemeContext);
 
 export default function ThemeProvider({
   children,
