@@ -13,8 +13,9 @@
     "build:mac-libsql-intel": "cp -r ./prebuild/libsql-darwin-x64 ./node_modules/@libsql/darwin-x64",
     "build:mac": "npm run build:mac-libsql-intel && npm run build && electron-builder --mac --config",
     "build:linux": "npm run build && electron-builder --linux --config",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "lint": "npm run test:lint-config && eslint \"**/*.{ts,tsx}\" --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "test:lint-config": "node --test scripts/eslint-config.test.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.2.0",
@@ -49,21 +50,23 @@
     "use-immer": "^0.10.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@types/dockerode": "^3.3.32",
     "@types/pg": "^8.11.10",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.71.0",
+    "@typescript-eslint/parser": "^8.71.0",
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
     "electron": "^43.7.7",
     "electron-builder": "^26.15.3",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint": "^10.11.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.12.0",
     "postcss": "^8.5.23",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
@@ -75,6 +78,6 @@
   },
   "main": "dist-electron/main.js",
   "engines": {
-    "node": ">=22.12.0"
+    "node": "^22.13.0 || >=24.0.0"
   }
 }

@@ -6,7 +6,7 @@ export function parseSafeJson<T = unknown>(
 
   try {
     return JSON.parse(json) as T;
-  } catch (e) {
+  } catch {
     return defaultValue;
   }
 }

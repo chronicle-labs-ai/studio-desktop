@@ -98,9 +98,9 @@ export default class MySQLDriver implements BaseDriver {
       await conn.rollback();
       pool.releaseConnection(conn);
       if (e instanceof Error) {
-        throw new Error(e.message);
+        throw new Error(e.message, { cause: e });
       } else {
-        throw new Error(String(e));
+        throw new Error(String(e), { cause: e });
       }
     }
   }

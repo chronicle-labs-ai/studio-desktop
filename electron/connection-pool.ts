@@ -86,7 +86,7 @@ export class ConnectionPool {
     try {
       return await pool.query("SELECT 1");
     } catch (error) {
-      throw new Error(`Failed to connect to database: ${error}`);
+      throw new Error(`Failed to connect to database: ${error}`, { cause: error });
     } finally {
       pool.close();
     }
