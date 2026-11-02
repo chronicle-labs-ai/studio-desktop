@@ -59,7 +59,7 @@
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
-    "electron": "^43.7.7",
+    "electron": "^43.8.1",
     "electron-builder": "^26.15.3",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -69,12 +69,19 @@
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.2.2",
-    "vite": "^6.4.3",
+    "vite": "^6.4.5",
     "vite-plugin-electron": "^0.28.6",
     "vite-plugin-electron-renderer": "^0.14.5"
   },
   "main": "dist-electron/main.js",
   "engines": {
     "node": ">=22.12.0"
+  },
+  "overrides": {
+    "fast-uri@^3": "3.1.9",
+    "postcss-selector-parser@^6": "6.1.5",
+    "source-map-js": "1.2.2",
+    "undici@^6": "6.29.1",
+    "undici@^7": "7.30.1"
   }
 }
